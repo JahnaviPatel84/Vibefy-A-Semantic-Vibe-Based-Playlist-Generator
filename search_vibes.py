@@ -7,24 +7,20 @@ Original file is located at
     https://colab.research.google.com/drive/1JgEGjLPD_BsBEZHfFZo9rX-uAjc0U7JI
 """
 
-import pandas as pd
-import numpy as np
-from sentence_transformers import SentenceTransformer
-from sklearn.metrics.pairwise import cosine_similarity
-
 import os
 import pandas as pd
 import numpy as np
 from sentence_transformers import SentenceTransformer
+import gdown
 
-# Load original dataset
-df_raw = pd.read_pickle("tracks_with_embeddings.pkl")
-model = SentenceTransformer("all-MiniLM-L6-v2")
+# File path and Drive ID
+pkl_path = "tracks_with_mood_embeddings.pkl"
+drive_url = f"https://drive.google.com/drive/folders/13tpIYFR4f6UxsuipdReooFb7s4u3S2rv?usp=sharing"
 
-# Check if the mood-enhanced file already exists
-if os.path.exists("tracks_with_mood_embeddings.pkl"):
-    print(" Precomputed embeddings found. Loading...")
-    df = pd.read_pickle("tracks_with_mood_embeddings.pkl")
+# Download from Google Drive if not already present
+if not os.path.exists(pkl_path):
+    print("Downloading .pkl file from Google Drive...")
+    gdown.download(drive_url, pkl_path, quiet=False)
 else:
     print(" No precomputed file found. Generating mood embeddings...")
 
