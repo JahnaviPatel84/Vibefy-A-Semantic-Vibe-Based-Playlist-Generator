@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Your Vibefy++ Playlist</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h2>Vibe: <em>{{ vibe }}</em> — Style: <em>{{ style }}</em></h2>
+    <ul>
+      {% for _, row in tracks %}
+        <li>
+          <strong>{{ row.track_name }}</strong> — {{ row.artist_name }} ({{ row.genre }})
+          <br><span style="opacity: 0.6"> matched mood: {{ row.mood_description }}</span>
+          {% if row.get("spotify_link") %}
+            <br><a href="{{ row.spotify_link }}" target="_blank">🎧 Listen on Spotify</a>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+
+    <a href="/">← Try another vibe</a>
+  </div>
+</body>
+</html>
