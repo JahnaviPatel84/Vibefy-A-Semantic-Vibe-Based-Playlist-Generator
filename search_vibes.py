@@ -15,7 +15,7 @@ import gdown
 
 # File path and Drive ID
 pkl_path = "tracks_with_mood_embeddings.pkl"
-drive_url = f"https://drive.google.com/drive/folders/13tpIYFR4f6UxsuipdReooFb7s4u3S2rv?usp=sharing"
+drive_url = f"https://drive.google.com/file/d/1iHCCd9r2blduOyo8PaQc_LUK_dzLxyoF/view?usp=sharing"
 
 # Download from Google Drive if not already present
 if not os.path.exists(pkl_path):
