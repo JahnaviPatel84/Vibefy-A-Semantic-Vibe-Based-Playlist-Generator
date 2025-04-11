@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vibefy++</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>🎧 Vibefy++</h1>
+    <p>Describe your vibe and we'll build a playlist.</p>
+
+    <form method="POST">
+      <input type="text" name="vibe" placeholder="e.g., late night drive, beach morning" required>
+
+      <select name="style">
+        <option value="none">raw vibe only</option>
+        <option value="lofi">lo-fi / chill</option>
+        <option value="soft">soft / calm</option>
+        <option value="energetic">energetic / hype</option>
+        <option value="dance">dance / pop</option>
+        <option value="sadboi">emotional / sad</option>
+      </select>
+
+      <button type="submit"> Generate Playlist</button>
+    </form>
+  </div>
+</body>
+</html>
